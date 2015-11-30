@@ -4,33 +4,36 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="444" Width="569">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="393" Margin="10,10,0,0" VerticalAlignment="Top" Width="541">
-            <TabItem Header="Credentials">
+        <TabControl x:Name="StepsTabControl" HorizontalAlignment="Left" Height="393" Margin="10,10,0,0" VerticalAlignment="Top" Width="541">
+            <TabItem x:Name="CredentialTabItem" Header="Credentials">
                 <Grid Margin="-3,1,1,1">
                     <Label Content="Choose organizations for transfering data" HorizontalAlignment="Left" Margin="9,116,0,0" VerticalAlignment="Top" Width="229"/>
                     <TextBox x:Name="FromOrgTextBox" HorizontalAlignment="Left" Height="23" Margin="76,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="386"/>
                     <Label Content="From" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top"/>
                     <Button x:Name="NextButton" Content="Next" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Margin="446,307,0,0" Height="29"/>
-                    <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Left" Margin="467,147,0,0" VerticalAlignment="Top" Width="72" Height="26" Click="CreateButton_Click"/>
+                    <Button x:Name="TestButton" Content="Test" HorizontalAlignment="Left" Margin="467,147,-3,0" VerticalAlignment="Top" Width="75" Height="26" Click="TestButton_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Steps">
+            <TabItem x:Name="StepsTabItem" Header="Steps">
                 <Grid >
-                    <ListBox HorizontalAlignment="Left" Height="247" Margin="10,41,0,0" VerticalAlignment="Top" Width="147"/>
+                    <ListBox x:Name="StepsListBox" HorizontalAlignment="Left" Height="247" Margin="10,41,0,0" VerticalAlignment="Top" Width="147" BorderThickness="1"/>
                     <Label Content="Steps" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="147"/>
-                    <Button Content="+" HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" Width="28"/>
-                    <Button Content="-" HorizontalAlignment="Left" Margin="43,293,0,0" VerticalAlignment="Top" Width="28"/>
+                    <Button x:Name="AddStepButton" Content="+" HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" Width="28" Click="AddStepButton_Click"/>
+                    <Button x:Name="DeleteStepButton" Content="x" HorizontalAlignment="Left" Margin="43,293,0,0" VerticalAlignment="Top" Width="28" Click="DeleteStepButton_Click"/>
                     <Button Content="up" HorizontalAlignment="Left" Margin="76,293,0,0" VerticalAlignment="Top" Width="28"/>
                     <Button Content="down" HorizontalAlignment="Left" Margin="109,293,0,0" VerticalAlignment="Top" Width="28"/>
+                    <TextBox x:Name="FetchXmlTextBox" HorizontalAlignment="Left" Height="247" Margin="178,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="349" AcceptsReturn="True"/>
+                    <Label Content="FetchXml :" HorizontalAlignment="Left" Margin="178,10,0,0" VerticalAlignment="Top" Width="349"/>
+                    <Button x:Name="ExecuteButton" Content="Execute" HorizontalAlignment="Left" Margin="452,293,0,0" VerticalAlignment="Top" Width="75" Click="ExecuteButton_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Config">
+            <TabItem x:Name="ConfigTabItem" Header="Config">
                 <Grid >
                     <ListBox HorizontalAlignment="Left" Height="295" Margin="10,41,0,0" VerticalAlignment="Top" Width="147"/>
                     <Label Content="Steps" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="147"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Move!">
+            <TabItem x:Name="MoveTabItem" Header="Move!">
                 <Grid >
                 </Grid>
             </TabItem>
