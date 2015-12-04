@@ -1,0 +1,9 @@
+﻿<Window x:Class="DataMover.ShowDataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ShowDataWindow" Height="395.865" Width="747.745">
+    <Grid>
+        <DataGrid x:Name="ResponseDataGrid" ItemsSource="{Binding}" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="720" Height="288" IsEnabled="False"/>
+
+    </Grid>
+</Window>

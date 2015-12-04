@@ -17,6 +17,7 @@ using MahApps.Metro.Controls;
 using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Messages;
+using Microsoft.Xrm.Client.Runtime.Serialization;
 using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk.Client;
 using Microsoft.Xrm.Sdk.Query;
@@ -78,13 +79,14 @@ namespace DataMover
             {
                 using (var organizationService = new OrganizationService(crmConnection))
                 {
-                    var fetchExpression = new FetchExpression(fetchXml);
-                    var response = organizationService.RetrieveMultiple(fetchExpression);
+                    FetchXmlToQueryExpressionRequest req = new FetchXmlToQueryExpressionRequest {FetchXml = fetchXml};
+                    var response = (FetchXmlToQueryExpressionResponse) organizationService.Execute(req);
+                    new ShowDataWindow(response).ShowDialog();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Not Connected!");
+                MessageBox.Show("Not Connected!" + ex);
             }
         }
     }
